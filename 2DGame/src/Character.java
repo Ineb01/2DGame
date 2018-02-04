@@ -9,17 +9,31 @@ public class Character extends GameObject {
 	public GameObject update(boolean[] keys) {
 		double yold = y;
 		double xold = x;
+		int speed = 3;
+		if(keys[KeyEvent.VK_SHIFT]) {
+			speed = 5;
+		} else {
+			speed = 3;
+		}
 		if (keys[KeyEvent.VK_S]) {
-			y += 3;
+			if(y < 1060) {
+				y += speed;
+			}
 		}
 		if (keys[KeyEvent.VK_W]) {
-			y -= 3;
+			if(y > 20) {
+				y -= speed;
+			}
 		}
 		if (keys[KeyEvent.VK_D]) {
-			x += 3;
+			if(x < 1900) {
+				x += speed;
+			}
 		}
 		if (keys[KeyEvent.VK_A]) {
-			x -= 3;
+			if(x > 20) {
+				x -= speed;
+			}
 		}
 		if (keys[KeyEvent.VK_UP]) {
 			return new Projectile(this.x, this.y, (x - xold), (y - yold) - 5);
