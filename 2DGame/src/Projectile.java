@@ -10,6 +10,12 @@ public class Projectile extends GameObject{
 	}
 	@Override
 	public GameObject update(boolean[] keys) {
+		if(x<5 || x>1915) {
+			xVel = - xVel;
+		}
+		if(y<5 || y>1075) {
+			yVel = - yVel;
+		}
 		this.x += this.xVel;
 		this.y += this.yVel;
 		return null;
