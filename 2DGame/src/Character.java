@@ -7,7 +7,8 @@ public class Character extends GameObject{
 	}
 	
 	public GameObject update(boolean[] keys) {
-		
+		double yold = y;
+		double xold = x;
 		if(keys[KeyEvent.VK_S]) {
 			y += 3;
 		}
@@ -21,16 +22,16 @@ public class Character extends GameObject{
 			x -= 3;
 		}
 		if(keys[KeyEvent.VK_UP]) {
-			return new Projectile(this.x, this.y, 0, -1);
+			return new Projectile(this.x, this.y, (x-xold), (y-yold)-5);
 		}
 		if(keys[KeyEvent.VK_DOWN]) {
-			return new Projectile(this.x, this.y, 0, 1);
+			return new Projectile(this.x, this.y, (x-xold), (y-yold)+5);
 		}
 		if(keys[KeyEvent.VK_RIGHT]) {
-			return new Projectile(this.x, this.y, 1, 0);
+			return new Projectile(this.x, this.y, (x-xold)+5, (y-yold));
 		}
 		if(keys[KeyEvent.VK_LEFT]) {
-			return new Projectile(this.x, this.y, -1, 0);
+			return new Projectile(this.x, this.y, (x-xold)-5, (y-yold));
 		}
 		return null;
 	}

@@ -35,8 +35,10 @@ public class GamePlane extends JPanel implements ActionListener {
 		super.paintComponent(g);
 		for (GameObject gameObject : allObjects) {
 			if (gameObject.type == 1) {
+				g.setColor(Color.BLUE);
 				((Graphics2D) g).fill(new Ellipse2D.Double(gameObject.x-20, gameObject.y-20, 40, 40));
 			} else if (gameObject.type == 2) {
+				g.setColor(Color.BLACK);
 				((Graphics2D) g).fill(new Ellipse2D.Double(gameObject.x-5, gameObject.y-5, 10, 10));
 			}
 		}
