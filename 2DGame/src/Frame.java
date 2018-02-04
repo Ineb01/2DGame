@@ -2,10 +2,12 @@ import javax.swing.JFrame;
 
 public class Frame extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+
 	public Frame() {
 		super("2DGame");
 
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setUndecorated(true);
 
 		this.add(new GamePlane());
