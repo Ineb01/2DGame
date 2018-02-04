@@ -43,11 +43,16 @@ public class GamePlane extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		ArrayList<GameObject> temp = new ArrayList<GameObject>();
-		for (int i = allObjects.size() - 1; i >= 0; i--) {
-			temp.addAll(allObjects.get(i).update(((Keyboard) allObjects.get(0)).keys));
+		ArrayList<GameObject> addedObjects = new ArrayList<GameObject>();
+		ArrayList<GameObject> removedObjects = new ArrayList<GameObject>();
+		for (GameObject gameObject : allObjects) {
+			addedObjects.addAll(gameObject.update(((Keyboard) allObjects.get(0)).keys));
+			if(gameObject.delete){
+				removedObjects.add(gameObject);
+			}
 		}
-		allObjects.addAll(temp);
+		allObjects.addAll(addedObjects);
+		allObjects.removeAll(removedObjects);
 		repaint();
 	}
 
