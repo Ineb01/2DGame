@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Projectile extends GameObject{
 	double xVel, yVel;
@@ -9,7 +10,7 @@ public class Projectile extends GameObject{
 		this.type = 2;
 	}
 	@Override
-	public GameObject update(boolean[] keys) {
+	public ArrayList<GameObject> update(boolean[] keys) {
 		if(x<5 || x>1915) {
 			xVel = - xVel;
 		}
@@ -18,6 +19,6 @@ public class Projectile extends GameObject{
 		}
 		this.x += this.xVel;
 		this.y += this.yVel;
-		return null;
+		return new ArrayList<GameObject>();
 	}
 }

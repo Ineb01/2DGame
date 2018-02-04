@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 public class Character extends GameObject {
 
@@ -6,9 +7,10 @@ public class Character extends GameObject {
 		this.type = 1;
 	}
 
-	public GameObject update(boolean[] keys) {
+	public ArrayList<GameObject> update(boolean[] keys) {
 		double yold = y;
 		double xold = x;
+		ArrayList<GameObject> returnObjects = new ArrayList<GameObject>();
 		int speed = 3;
 		if(keys[KeyEvent.VK_SHIFT]) {
 			speed = 5;
@@ -36,18 +38,18 @@ public class Character extends GameObject {
 			}
 		}
 		if (keys[KeyEvent.VK_UP]) {
-			return new Projectile(this.x, this.y, (x - xold), (y - yold) - 5);
+			returnObjects.add(new Projectile(this.x, this.y, (x - xold), (y - yold) - 5));
 		}
 		if (keys[KeyEvent.VK_DOWN]) {
-			return new Projectile(this.x, this.y, (x - xold), (y - yold) + 5);
+			returnObjects.add(new Projectile(this.x, this.y, (x - xold), (y - yold) + 5));
 		}
 		if (keys[KeyEvent.VK_RIGHT]) {
-			return new Projectile(this.x, this.y, (x - xold) + 5, (y - yold));
+			returnObjects.add(new Projectile(this.x, this.y, (x - xold) + 5, (y - yold)));
 		}
 		if (keys[KeyEvent.VK_LEFT]) {
-			return new Projectile(this.x, this.y, (x - xold) - 5, (y - yold));
+			returnObjects.add(new Projectile(this.x, this.y, (x - xold) - 5, (y - yold)));
 		}
-		return null;
+		return returnObjects;
 	}
 
 }

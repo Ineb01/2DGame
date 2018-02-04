@@ -43,12 +43,11 @@ public class GamePlane extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		ArrayList<GameObject> temp = new ArrayList<GameObject>();
 		for (int i = allObjects.size() - 1; i >= 0; i--) {
-			GameObject temp = allObjects.get(i).update(((Keyboard) allObjects.get(0)).keys);
-			if (temp != null) {
-				allObjects.add(temp);
-			}
+			temp.addAll(allObjects.get(i).update(((Keyboard) allObjects.get(0)).keys));
 		}
+		allObjects.addAll(temp);
 		repaint();
 	}
 

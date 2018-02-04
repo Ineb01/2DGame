@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Keyboard extends GameObject implements KeyListener {
 
@@ -11,8 +12,8 @@ public class Keyboard extends GameObject implements KeyListener {
 		this.type = 0;
 	}
 
-	public GameObject update(boolean[] keys) {
-		return null;
+	public ArrayList<GameObject> update(boolean[] keys) {
+		return new ArrayList<GameObject>();
 	}
 
 	public void keyPressed(KeyEvent e) {
