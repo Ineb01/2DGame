@@ -6,8 +6,6 @@ public class Keyboard extends GameObject implements KeyListener {
 
 	public boolean[] keys = new boolean[120];
 
-	public boolean up, down, left, right, interact;
-
 	public Keyboard() {
 		this.type = 0;
 	}
